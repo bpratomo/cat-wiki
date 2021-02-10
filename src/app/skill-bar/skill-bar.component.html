@@ -1,0 +1,14 @@
+
+    <ul class="flex ">
+      <li *ngFor="let number of [0, 1, 2, 3, 4]">
+        <div
+          *ngIf="number < propLevel"
+          class="border-black border-solid bg-black h-3 w-16 rounded-xl mx-1"
+        ></div>
+  
+        <div
+          *ngIf="number > propLevel"
+          class="border-black border-solid bg-gray-200 h-3 w-16  rounded-xl mx-1"
+        ></div>
+      </li>
+    </ul>
