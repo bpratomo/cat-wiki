@@ -1,97 +1,115 @@
-<div id="container" class="m-4">
+<div id="container" class="m-4" *ngIf="image">
   <section id="main" class="flex flex-wrap flex-row md:flex-nowrap">
-    <div id="catImage" class="w-full md:mr-4"><img class="w-60 m-auto h-60 object-cover rounded-2xl" src="" alt="" srcset="assets/HeroImagemd.png"></div>
+    <div id="catImage" class="w-full mb-4 md:mr-4">
+      <img
+        class="w-full m-auto h-60 object-cover rounded-2xl"
+        src=""
+        alt=""
+        srcset={{image.url}}
+      />
+    </div>
     <div id="description">
-      <h2 class="font-bold text-xl">Bengal</h2>
+      <h2 class="font-bold text-xl">{{ image.breeds[0].name }}</h2>
       <p class="my-4">
-        Bengals are a lot of fun to live with, but they're definitely not the cat
-        for everyone, or for first-time cat owners. Extremely intelligent, curious
-        and active, they demand a lot of interaction and woe betide the owner who
-        doesn't provide it.
+        {{ image.breeds[0].description }}
       </p>
       <p class="my-4">
-        <span class="font-bold">Temperament: </span>Temperament: Alert, Agile,
-        Energetic, Demanding, Intelligent
+        <span class="font-bold">Temperament: </span
+        >{{ image.breeds[0].temperament }}
       </p>
-      <p class="my-4"><span class="font-bold">Origin: </span> United States</p>
-  
-      <p class="my-4"><span class="font-bold">Life Span: </span> 12-15 years</p>
-  
+      <p class="my-4"><span class="font-bold">Origin: </span> {{image.breeds[0].origin }}</p>
+
+      <p class="my-4"><span class="font-bold">Life Span: </span> {{image.breeds[0].life_span }}</p>
+
       <table class="table-auto font-bold">
         <tbody>
           <tr class="align-middle">
             <td class="py-2">Adaptability:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].adaptability"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Affection Level:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].affection_level"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Child friendly:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].child_friendly"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Grooming:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].grooming"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Intelligence:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].intelligence"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Health Issues:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].health_issues"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Social Needs:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].social_needs"></app-skill-bar>
             </td>
           </tr>
-  
+
           <tr class="align-middle">
             <td class="py-2">Stranger Friendly:</td>
             <td class="py-2">
-              <app-skill-bar [propLevel]="2"></app-skill-bar>
+              <app-skill-bar [propLevel]="image.breeds[0].stranger_friendly"></app-skill-bar>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
-  
-  <section id="catGallery" class="mt-4 bg-yellow-100 rounded-2xl p-4" >
-  <h1 class="font-bold text-xl mb-6">Other photos</h1>
-  <div id="catGallery" class="grid grid-cols-2 gap-6 md:grid-cols-4">
-      <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg" />
-      <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg"/>
-      <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg"/>
-      <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg"/>
-  </div>
-  
-  
-  
-  
-  
-  
+
+  <section id="catGallery" class="mt-4 bg-yellow-100 rounded-2xl p-4">
+    <h1 class="font-bold text-xl mb-6">Other photos</h1>
+    <div id="catGallery" class="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <img
+        src="https://cdn2.thecatapi.com/images/78.jpg"
+        alt=""
+        srcset=""
+        class="rounded-lg"
+      />
+      <img
+        src="https://cdn2.thecatapi.com/images/78.jpg"
+        alt=""
+        srcset=""
+        class="rounded-lg"
+      />
+      <img
+        src="https://cdn2.thecatapi.com/images/78.jpg"
+        alt=""
+        srcset=""
+        class="rounded-lg"
+      />
+      <img
+        src="https://cdn2.thecatapi.com/images/78.jpg"
+        alt=""
+        srcset=""
+        class="rounded-lg"
+      />
+    </div>
   </section>
 </div>

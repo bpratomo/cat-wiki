@@ -1,100 +1,130 @@
+<section
+  id="modal"
+  class="h-screen w-full absolute top-0 bg-white z-20"
+  *ngIf="isSearchActive"
+>
+  <button
+    class="float-right py-3 px-4 bg-gray-100 rounded-lg"
+    (click)="toggleSearch()"
+  >
+    X
+  </button>
 
-<section id="modal" class="h-screen relative bg-white z-10" *ngIf="isSearchActive">
-    <button class="float-right m-4 py-3 px-4 bg-gray-100 rounded-lg"
-    (click) = "toggleSearch()">
-      X
-    </button>
-    
-    
-      <input
-            type="text"
-            name="Search"
-            id=""
-            placeholder="Search"
-            [(ngModel)]="searchQuery"
-            class="w-11/12 border-black h-8 p-6 border-solid border rounded-xl my-2 mx-6 text-black placeholder-black"
-          />
-    
-    <ul class="my-2 mx-6">
-      <li class="my-5 h-8 hover:bg-gray-100 text-lg">American Bobtail</li>
-      <li class="my-5 h-8 hover:bg-gray-100 text-lg">American Curl</li>
-      <li class="my-5 h-8 hover:bg-gray-100 text-lg">American Shorthair</li>
-      <li class="my-5 h-8 hover:bg-gray-100 text-lg">American Wirehair</li>
-    </ul>
-    </section>
-    
-    
-    
-    
-    <header>Catwiki</header>
-    
-    <div id="main" class="flex-col absolute top-0 flex m-4 h-screen z-0">
-    
-    <section id="hero" class="flex flex-col">
-      <div class="w-full block overflow-visible h-auto relative">
-        <div class="z-0">
-          <img src="assets/HeroImagelg.png" alt="" srcset="" class="rounded-t-3xl" />
-        </div>
-    
-        <div
-          id="text-container"
-          class="w-3/6 my-5 ml-8 absolute top-0 z-10 text-white md:text-md lg:text-lg "
-        >
-          <h1>Catwiki</h1>
-          <p>Get to know more about your cat breed</p>
-          <input
-            type="text"
-            name="Search"
-            id=""
-            placeholder="Search"
-            [(ngModel)]="searchQuery"
-            (click)="toggleSearch()"
-            class="w-3/6 h-8 p-3 rounded-xl mt-5 placeholder-black"
+  <input
+    type="text"
+    name="Search"
+    id=""
+    placeholder="Search"
+    [(ngModel)]="searchQuery"
+    (input)="getBreeds()"
+    class="w-11/12 border-black h-8 p-6 border-solid border rounded-xl my-2 mx-6 text-black placeholder-black"
+  />
 
-          />
-        </div>
+  <ul class="my-2 mx-6">
+    <li class="my-5 h-8 hover:bg-gray-100 text-lg" *ngFor="let breed of breeds"
+    routerLink="/detail/{{breed.id}}">
+      {{breed.name}}
+    </li>
+  </ul>
+</section>
+
+<div id="main" class="flex-col absolute top-0 flex h-screen z-0">
+  <section id="hero" class="flex flex-col">
+    <div class="w-full block overflow-visible h-auto relative">
+      <div class="z-0">
+        <img
+          src="assets/HeroImagelg.png"
+          alt=""
+          srcset=""
+          class="rounded-t-3xl"
+        />
       </div>
-    
-      <div class="bg-yellow-100 rounded-b-3xl p-8  ">
-        <h2 class="text-lg">Most searched breed</h2>
-        <hr class="w-2/6  border-yellow-900 bg-yellow-900 border-2"/>
-        <h1 class="text-2xl my-4">66+ Breeds for you to discover</h1>
-        <div id="catGallery" class="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div>
-            <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg" />
-            Bengal
-          </div>
-          <div>
-            <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg"/>
-            Bengal
-          </div>
-          <div>
-            <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg"/>
-            Bengal
-          </div>
-          <div>
-            <img src="https://cdn2.thecatapi.com/images/78.jpg" alt="" srcset="" class="rounded-lg"/>
-            Bengal
-          </div>
-        </div>
+
+      <div
+        id="text-container"
+        class="w-3/6 my-5 ml-8 absolute top-0 z-10 text-white md:text-md lg:text-lg"
+      >
+        <img
+          src="./assets/CatwikiLogo.svg"
+          alt=""
+          srcset=""
+          class="text-white"
+        />
+        <p>Get to know more about your cat breed</p>
+        <input
+          type="text"
+          name="Search"
+          id=""
+          placeholder="Search"
+          [(ngModel)]="searchQuery"
+          (click)="toggleSearch()"
+          class="w-3/6 h-8 p-3 rounded-xl mt-5 placeholder-black text-black"
+        />
       </div>
-    </section>
-    
-    <section id="Explanation">
-      <hr class="w-2/6 my-6 border-yellow-900 bg-yellow-900 border-2"/>
-    
-      <p class="text-5xl">Why should <br> you have a cat?</p>
-      <p class="text-lg mt-20 mb-10">Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress and anxiety leves</p>
-      <a class="text-yellow-900 text-md">READ MORE -></a>
-    
-    </section>
-    
-    <section id="gallery" class="grid grid-cols-2 gap-4 mt-6">
-      <img src="assets/image 2.png" alt="" srcset="" />
-      <img src="assets/image 3.png" alt="" srcset="" class="row-span-2"/>
-      <img src="assets/image 1.png" alt="" srcset="" />
-    
-    
-    </section>
-    
     </div>
+
+    <div class="bg-yellow-100 rounded-b-3xl p-8">
+      <h2 class="text-lg">Most searched breed</h2>
+      <hr class="w-2/6 border-yellow-900 bg-yellow-900 border-2" />
+      <h1 class="text-2xl my-4">66+ Breeds for you to discover</h1>
+      <div id="catGallery" class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div>
+          <img
+            src="https://cdn2.thecatapi.com/images/78.jpg"
+            alt=""
+            srcset=""
+            class="rounded-lg"
+          />
+          Bengal
+        </div>
+        <div>
+          <img
+            src="https://cdn2.thecatapi.com/images/78.jpg"
+            alt=""
+            srcset=""
+            class="rounded-lg"
+          />
+          Bengal
+        </div>
+        <div>
+          <img
+            src="https://cdn2.thecatapi.com/images/78.jpg"
+            alt=""
+            srcset=""
+            class="rounded-lg"
+          />
+          Bengal
+        </div>
+        <div>
+          <img
+            src="https://cdn2.thecatapi.com/images/78.jpg"
+            alt=""
+            srcset=""
+            class="rounded-lg"
+          />
+          Bengal
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="Explanation">
+    <hr class="w-2/6 my-6 border-yellow-900 bg-yellow-900 border-2" />
+
+    <p class="text-5xl">
+      Why should <br />
+      you have a cat?
+    </p>
+    <p class="text-lg mt-20 mb-10">
+      Having a cat around you can actually trigger the release of calming
+      chemicals in your body which lower your stress and anxiety leves
+    </p>
+    <a class="text-yellow-900 text-md">READ MORE -></a>
+  </section>
+
+  <section id="gallery" class="grid grid-cols-2 gap-4 mt-6">
+    <img src="assets/image 2.png" alt="" srcset="" />
+    <img src="assets/image 3.png" alt="" srcset="" class="row-span-2" />
+    <img src="assets/image 1.png" alt="" srcset="" />
+  </section>
+</div>

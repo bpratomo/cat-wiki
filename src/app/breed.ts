@@ -1,4 +1,4 @@
-interface Breed {
+export interface Breed {
     adaptability: number;
     affection_level: number;
     alt_names: string;
@@ -42,3 +42,13 @@ interface Breed {
     imperial: string;
     metric: string;
   }
+
+
+
+export interface Image {
+    breeds: Breed[];
+    id: string;
+    url: string;
+    width: number;
+    height: number;
+}
