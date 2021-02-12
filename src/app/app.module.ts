@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
 import { DetailComponent } from './detail/detail.component';
 import { SkillBarComponent } from './skill-bar/skill-bar.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { SkillBarComponent } from './skill-bar/skill-bar.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
