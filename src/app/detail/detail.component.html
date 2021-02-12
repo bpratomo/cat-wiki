@@ -1,8 +1,9 @@
+
 <div id="container" class="m-4" *ngIf="image">
   <section id="main" class="flex flex-wrap flex-row md:flex-nowrap">
-    <div id="catImage" class="w-full mb-4 md:mr-4">
+    <div id="catImage" class="w-full h- 3/6 md:h-full mb-6 md:mr-4">
       <img
-        class="w-full m-auto h-60 object-cover rounded-2xl"
+        class="w-full m-auto h-full object-contain rounded-2xl"
         src=""
         alt=""
         srcset={{image.url}}
@@ -85,31 +86,16 @@
 
   <section id="catGallery" class="mt-4 bg-yellow-100 rounded-2xl p-4">
     <h1 class="font-bold text-xl mb-6">Other photos</h1>
-    <div id="catGallery" class="grid grid-cols-2 gap-6 md:grid-cols-4">
-      <img
-        src="https://cdn2.thecatapi.com/images/78.jpg"
-        alt=""
-        srcset=""
-        class="rounded-lg"
-      />
-      <img
-        src="https://cdn2.thecatapi.com/images/78.jpg"
-        alt=""
-        srcset=""
-        class="rounded-lg"
-      />
-      <img
-        src="https://cdn2.thecatapi.com/images/78.jpg"
-        alt=""
-        srcset=""
-        class="rounded-lg"
-      />
-      <img
-        src="https://cdn2.thecatapi.com/images/78.jpg"
-        alt=""
-        srcset=""
-        class="rounded-lg"
-      />
+    <div id="catGallery" class="grid grid-cols-2 gap-4 md:grid-cols-4  ">
+      <div class="p-auto" *ngFor = "let image of images">
+        <img
+          src={{image.url}}
+          alt=""
+          srcset=""
+          class="rounded-lg h-full w-full object-cover"
+
+        />
+      </div>
     </div>
   </section>
 </div>

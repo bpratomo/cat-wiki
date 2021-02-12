@@ -17,9 +17,11 @@ export class DetailComponent implements OnInit {
   ) {}
 
   image?: Image;
+  images?: Image[];
 
   ngOnInit(): void {
     this.getBreed();
+    this.getImages();
   }
 
   getBreed(): void {
@@ -34,5 +36,18 @@ export class DetailComponent implements OnInit {
     } else {
       console.log("invalid page")
     }
+  }
+
+  getImages(): void{
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      console.log('triggered!')
+      this.breedService
+        .getImagesbyBreedId(id,'8')
+        .subscribe((images) => (this.images = images));
+    } else {
+    }
+
   }
 }

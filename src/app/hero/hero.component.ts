@@ -15,7 +15,9 @@ export class HeroComponent implements OnInit {
 
   constructor(private breedservice: BreedService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.breeds)
+  }
 
   toggleSearch(): void {
     this.isSearchActive
@@ -24,6 +26,7 @@ export class HeroComponent implements OnInit {
   }
 
   getBreeds(): void {
+    console.log("get breeds triggered!")
     this.breedservice
       .getBreedsByName(this.searchQuery)
       .subscribe((breeds) => (this.breeds = breeds));
